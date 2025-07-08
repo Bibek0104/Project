@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Azure Deployment Chatbot</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f3f6fa; padding: 40px; text-align: center;">
+
+    <div style="background-color: white; max-width: 600px; margin: 0 auto; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+        <h2 style="color: #0078d7; margin-bottom: 20px;">💬 Azure Deployment Chatbot</h2>
+
+        <form method="post" onsubmit="showSpinner()">
+            <input 
+                type="text" 
+                name="message" 
+                placeholder="e.g., Create a storage account mystorage in West Europe"
+                style="width: 90%; padding: 12px 15px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px;"
+                required
+            ><br>
+
+            <input 
+                type="submit" 
+                value="Submit Command"
+                style="padding: 10px 20px; font-size: 16px; background-color: #0078d7; color: white; border: none; border-radius: 5px; cursor: pointer;"
+            >
+        </form>
+
+        <!-- Spinner -->
+        <div id="spinner" style="display: none; margin-top: 20px;">
+            <div style="
+                border: 4px solid #f3f3f3;
+                border-top: 4px solid #0078d7;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                animation: spin 1s linear infinite;
+                margin: auto;
+            "></div>
+            <p style="color: #0078d7;">Processing your request...</p>
+        </div>
+
+        {% if result %}
+            <div style="margin-top: 30px; text-align: left;">
+                <h3 style="color: #333;">🔎 Result:</h3>
+                <div style="padding: 15px; background-color: #eef3f9; border-radius: 5px; color: #333;">
+                    {{ result }}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        function showSpinner() {
+            document.getElementById("spinner").style.display = "block";
+        }
+    </script>
+
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+</body>
+</html>
