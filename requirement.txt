@@ -1,6 +1,0 @@
-flask
-google-generativeai
-azure-identity
-azure-mgmt-resource
-azure-mgmt-storage
-python-dotenv
